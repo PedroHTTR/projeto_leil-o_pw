@@ -1,15 +1,20 @@
 package com.leilao.backend.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leilao.backend.model.Calculadora;
+import com.leilao.backend.service.HelloService;
 
 @RestController
 public class Hello {
+
+    @Autowired
+    private HelloService helloService;
 
     @GetMapping("/")
     public String hello() {
@@ -23,7 +28,6 @@ public class Hello {
 
     @PostMapping("/somar")
     public Calculadora somar(@RequestBody Calculadora calculadora) {
-        calculadora.setResultado(calculadora.getV1() + calculadora.getV2());
-        return calculadora;
+        return helloService.somar(calculadora);
     }
 }

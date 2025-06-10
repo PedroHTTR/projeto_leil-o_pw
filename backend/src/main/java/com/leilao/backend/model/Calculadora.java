@@ -6,5 +6,5 @@ import lombok.Data;
 public class Calculadora {
     private int v1;
     private int v2;
-    private int Resultado;
+    private int resultado;
 }
